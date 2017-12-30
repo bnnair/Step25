@@ -97,7 +97,7 @@ public class TodoController {
 		if (result.hasErrors()) {
 			return "todo";
 		}
-		count++;
+
 		//todo.setId(count);
 		todo.setUser(loggedInUser);
 
