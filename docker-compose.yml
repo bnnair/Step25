@@ -1,0 +1,25 @@
+version: '2.1'
+
+services:
+  demo-mysql:
+    image: mysql:latest
+    ports:
+      - 3306:3306
+    environment:
+      - MYSQL_ROOT_PASSWORD=mypassword
+      - MYSQL_DATABASE=todo_example
+      - MYSQL_USER=nimisha
+      - MYSQL_PASSWORD=bnnair
+
+  spring-boot-first-web-application:
+    image:  spring-boot-first-web-application
+    depends_on: 
+      - demo-mysql
+    ports:
+      - 8080:8080
+    environment:
+      - DATABASE_HOST=demo-mysql 
+      - DATABASE_PORT=3306
+      - DATABASE_NAME=todo_example
+      - DATABASE_USER=nimisha
+      - DATABASE_PASSWORD=bnnair
